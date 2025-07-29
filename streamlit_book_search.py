@@ -43,7 +43,7 @@ def search_naver_api(endpoint, query, display=50):
     try:
         res = requests.get(url, params=payload, headers=headers)
         res.raise_for_status()  # 에러 발생 시 예외 처리
-        return res.json().get('items', [])
+        return res.json().get('items', [])   #res.json()['items']
     except requests.exceptions.RequestException as e:
         st.error(f"API 요청 중 오류가 발생했습니다: {e}")
         return []
@@ -66,6 +66,7 @@ def filter_and_sort_books(df, min_discount=20000):
         DataFrame: 필터링 및 정렬된 결과
     """
     if df.empty:
+        # empty 한 DataFrame 객체를 반환 
         return pd.DataFrame()
     
     # discount 열이 문자열일 경우 숫자로 변환
