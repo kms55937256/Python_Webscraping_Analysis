@@ -1,4 +1,5 @@
-# streamlit run streamlit_uicomponent.py
+# streamlit run 
+
 
 import streamlit as st
 import pandas as pd
@@ -28,6 +29,7 @@ st.header("5. 체크박스 & 버튼")
 agree = st.checkbox("개인정보 수집에 동의합니다.")
 if st.button("제출하기"):
     if agree:
+        
         st.success("제출 완료! 감사합니다.")
     else:
         st.warning("동의가 필요합니다.")
